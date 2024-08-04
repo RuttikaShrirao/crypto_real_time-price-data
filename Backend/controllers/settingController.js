@@ -3,7 +3,6 @@ const Setting = require('../models/Setting');
 exports.updateTrackedSymbol = async (req, res) => {
   try {
     const { symbol } = req.body;
-    console.log(symbol,"symbollllllllllll")
     await Setting.findOneAndUpdate({}, { trackedSymbol: symbol.toUpperCase() }, { upsert: true });
     res.json({ success: true });
   } catch (error) {

@@ -3,7 +3,6 @@ const Stock = require('../models/Stock');
 exports.getRecentStockData = async (req, res) => {
   try {
     const symbol = req.params.symbol;
-    // console.log(symbol,"sssssssssssss")
     const stockData = await Stock.find({ stock_name:symbol },
       {stock_name: 1, price: 1, timestamp: 1}).sort({ timestamp: -1 }).limit(20);
     res.json(stockData);
@@ -14,7 +13,6 @@ exports.getRecentStockData = async (req, res) => {
 
 
 exports.getStocksList = async (req, res) => {
-  console.log(req,"dfdffgdfgf")
   try {  
     const options = {
       method: 'GET',
@@ -24,7 +22,6 @@ exports.getStocksList = async (req, res) => {
     fetch('https://api.coingecko.com/api/v3/coins/list', options)
       .then(response => response.json())
       .then(response => {
-        console.log(response)
           res.json(response)
           return response
         }
