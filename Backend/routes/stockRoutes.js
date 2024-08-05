@@ -4,6 +4,6 @@ const { getRecentStockData, getStocksList } = require('../controllers/stockContr
 const router = express.Router();
 
 router.get('/:symbol', getRecentStockData);
-router.get('/get-stocks-List', getStocksList);
+// router.get('/get-stocks-List', getStocksList);
 
 module.exports = router;

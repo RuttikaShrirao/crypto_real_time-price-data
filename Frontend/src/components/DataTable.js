@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { fetchStockData } from '../services/api';
-import { useDispatch, useSelector } from "react-redux"
+// import { useDispatch, useSelector } from "react-redux"
 
 const DataTable = ({ symbol }) => {
   const [data, setData] = useState([]);
-  const user= useSelector(state=>state.users)
+  // const user= useSelector(state=>state.users)
 
   useEffect(() => {
     const fetchData = async () => {
-        // console.log(symbol,"symbolllllll")
+        console.log(symbol,"symbolllllll")
       const result = await fetchStockData(symbol);
       console.log(result,"resulttttttttt")
       setData(result);
@@ -22,7 +22,7 @@ const DataTable = ({ symbol }) => {
 
   return (
     <>
-    <p>{user} </p>
+    {/* <p>{user} </p> */}
     <table>
       <thead>
         <tr>

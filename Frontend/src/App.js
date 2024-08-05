@@ -6,16 +6,17 @@ import { fetchTrackedSymbol } from './services/api';
 import './App.css';
 
 const App = () => {
-  const [symbol, setSymbol] = useState('');
+  const [symbol, setSymbol] = useState('bitcoin');
   const [isModalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
-    const getSymbol = async () => {
-      const trackedSymbol = await fetchTrackedSymbol();
-      setSymbol(trackedSymbol);
-    };
+    // const getSymbol = async () => {
+    //   // const trackedSymbol = await fetchTrackedSymbol();
+    //   // console.log(trackedSymbol,"tractedddddddddddd")
+    //   // setSymbol(trackedSymbol);
+    // };
 
-    getSymbol();
+    // getSymbol();
   }, []);
 
   const openModal = () => {
@@ -28,6 +29,7 @@ const App = () => {
 
   const handleSymbolChange = (newSymbol) => {
     setSymbol(newSymbol);
+    console.log(newSymbol,"newsymbol app")
   };
   return (
     <div className="app">

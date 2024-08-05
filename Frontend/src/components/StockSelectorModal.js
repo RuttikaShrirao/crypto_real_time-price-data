@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { updateTrackedSymbol } from '../services/api';
+import { fetchStockData } from '../services/api';
 
 const StockSelectorModal = ({ closeModal, onSymbolChange }) => {
-  const [symbol, setSymbol] = useState('');
+  const [symbol, setSymbol] = useState('bitcoin');
 
   const handleSubmit = async () => {
-    await updateTrackedSymbol(symbol);
+    await fetchStockData(symbol);
     onSymbolChange(symbol);
     closeModal();
   };
@@ -14,14 +15,24 @@ const StockSelectorModal = ({ closeModal, onSymbolChange }) => {
     <div className="modal">
       <div className="modal-content">
         <h2>Select Stock/Crypto</h2>
-        <input
+        <select onChange={(e) => setSymbol(e.target.value) } defaultValue={symbol} style={{padding:"10px"}}>
+          <option value="bitcoin">bitcoin</option>
+          <option value="ethereum">ethereum</option>
+          <option value="dogecoin">dogecoin</option>
+          <option value="matic-network">matic-network</option>
+          <option value="decentraland">decentraland</option>
+        </select>
+        {/* <input
           type="text"
           value={symbol}
           onChange={(e) => setSymbol(e.target.value)}
-          placeholder="Enter symbol (e.g., BTC, GOOG)"
+          placeholder="Enter symbol"
         />
-        <button onClick={handleSubmit}>Submit</button>
-        <button onClick={closeModal}>Cancel</button>
+        <p>[bitcoin,ethereum,dogecoin,matic-network,decentraland]</p> */}
+        <div className='modal-btn'>
+        <button onClick={handleSubmit} className='btn'>Submit</button>
+        <button onClick={closeModal} className='btn'>Cancel</button>
+        </div>
       </div>
     </div>
   );

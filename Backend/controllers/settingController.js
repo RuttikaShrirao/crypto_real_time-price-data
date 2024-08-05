@@ -1,9 +1,9 @@
-const Setting = require('../models/Setting');
+const Stock = require('../models/Stock');
 
 exports.updateTrackedSymbol = async (req, res) => {
   try {
     const { symbol } = req.body;
-    await Setting.findOneAndUpdate({}, { trackedSymbol: symbol.toUpperCase() }, { upsert: true });
+    await Setting.findOneAndUpdate({}, { trackedSymbol: symbol }, { upsert: true });
     res.json({ success: true });
   } catch (error) {
     res.status(500).json({ error: 'Error updating tracked symbol' });
@@ -12,8 +12,9 @@ exports.updateTrackedSymbol = async (req, res) => {
 
 exports.getTrackedSymbol = async (req, res) => {
   try {
-    const setting = await Setting.findOne();
-    res.json(setting.trackedSymbol);
+    const Stock = await Stock.findOne();
+    console.log(Stock,"kjjk")
+    // res.json(Stock.trackedSymbol);
   } catch (error) {
     res.status(500).json({ error: 'Error fetching tracked symbol' });
   }
