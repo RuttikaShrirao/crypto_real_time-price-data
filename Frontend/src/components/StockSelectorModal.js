@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { updateTrackedSymbol } from '../services/api';
 import { fetchStockData } from '../services/api';
 
 const StockSelectorModal = ({ closeModal, onSymbolChange }) => {
@@ -22,13 +21,6 @@ const StockSelectorModal = ({ closeModal, onSymbolChange }) => {
           <option value="matic-network">matic-network</option>
           <option value="decentraland">decentraland</option>
         </select>
-        {/* <input
-          type="text"
-          value={symbol}
-          onChange={(e) => setSymbol(e.target.value)}
-          placeholder="Enter symbol"
-        />
-        <p>[bitcoin,ethereum,dogecoin,matic-network,decentraland]</p> */}
         <div className='modal-btn'>
         <button onClick={handleSubmit} className='btn'>Submit</button>
         <button onClick={closeModal} className='btn'>Cancel</button>

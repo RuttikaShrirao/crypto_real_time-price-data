@@ -8,9 +8,7 @@ const DataTable = ({ symbol }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-        console.log(symbol,"symbolllllll")
       const result = await fetchStockData(symbol);
-      console.log(result,"resulttttttttt")
       setData(result);
     };
 

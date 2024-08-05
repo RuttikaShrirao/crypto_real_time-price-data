@@ -1,6 +1,5 @@
 const axios = require('axios');
 const Stock = require('../models/Stock');
-const Setting = require('../models/Setting');
 
 const pollData = async () => {
   try {
