@@ -12,22 +12,22 @@ exports.getRecentStockData = async (req, res) => {
 };
 
 
-exports.getStocksList = async (req, res) => {
-  try {  
-    const options = {
-      method: 'GET',
-      headers: {accept: 'application/json', 'x-cg-demo-api-key': 'CG-jQRa5k6aW4XV42LkU9HNynmL'}
-    };
+// exports.getStocksList = async (req, res) => {
+//   try {  
+//     const options = {
+//       method: 'GET',
+//       headers: {accept: 'application/json', 'x-cg-demo-api-key': 'CG-jQRa5k6aW4XV42LkU9HNynmL'}
+//     };
     
-    fetch('https://api.coingecko.com/api/v3/coins/list', options)
-      .then(response => response.json())
-      .then(response => {
-          res.json(response)
-          return response
-        }
-        ).catch(err => console.error(err));
-  } catch (error) {
-    res.status(500).json({ error: 'Error fetching stock data' });
-  }
-};
+//     fetch('https://api.coingecko.com/api/v3/coins/list', options)
+//       .then(response => response.json())
+//       .then(response => {
+//           res.json(response)
+//           return response
+//         }
+//         ).catch(err => console.error(err));
+//   } catch (error) {
+//     res.status(500).json({ error: 'Error fetching stock data' });
+//   }
+// };
 

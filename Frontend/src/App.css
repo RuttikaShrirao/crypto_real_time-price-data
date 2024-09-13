@@ -2,12 +2,11 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background-color: #444fa4;
 }
 
 .app {
   text-align: center;
-  padding: 20px;
 }
 
 table {
@@ -25,22 +24,22 @@ th, td {
 }
 
 th {
-  background-color: #4CAF50;
+  background-color: #04106e;
   color: white;
 }
 
 nav {
-  background-color: #4CAF50;
+  background-color: #04106e;
   color: white;
-  padding: 10px;
+  padding: 0px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
+  padding: 10px ;
+  background-color: #444fa4;
   color: white;
   border: none;
   cursor: pointer;

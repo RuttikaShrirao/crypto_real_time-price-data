@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import DataTable from './components/DataTable';
-import StockSelectorModal from './components/StockSelectorModal';
-import Navbar from './components/Navbar';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DataTable from "./components/DataTable";
+import StockSelectorModal from "./components/StockSelectorModal";
+import Navbar from "./components/Navbar";
+import "./App.css";
 
 const App = () => {
-  const [symbol, setSymbol] = useState('bitcoin');
+  const [symbol, setSymbol] = useState("bitcoin");
   const [isModalOpen, setModalOpen] = useState(false);
-
 
   const openModal = () => {
     setModalOpen(true);
@@ -17,15 +17,28 @@ const App = () => {
     setModalOpen(false);
   };
 
+// modal symbol change
   const handleSymbolChange = (newSymbol) => {
     setSymbol(newSymbol);
   };
+  
   return (
     <div className="app">
       <Navbar openModal={openModal} />
-      <DataTable symbol={symbol} />
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<DataTable symbol={symbol} />} />
+          {/* <Route path="/products" element={<Products />} />
+            <Route path="/about" element={<About />} /> */}
+        </Routes>
+      </BrowserRouter>
+
       {isModalOpen && (
-        <StockSelectorModal closeModal={closeModal} onSymbolChange={handleSymbolChange} />
+        <StockSelectorModal
+          closeModal={closeModal}
+          onSymbolChange={handleSymbolChange}
+        />
       )}
     </div>
   );

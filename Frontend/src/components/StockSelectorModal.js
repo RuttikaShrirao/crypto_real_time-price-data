@@ -5,6 +5,7 @@ const StockSelectorModal = ({ closeModal, onSymbolChange }) => {
   const [symbol, setSymbol] = useState('bitcoin');
 
   const handleSubmit = async () => {
+    // call api 
     await fetchStockData(symbol);
     onSymbolChange(symbol);
     closeModal();
