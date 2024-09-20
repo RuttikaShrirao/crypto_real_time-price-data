@@ -4,6 +4,7 @@ import DataTable from "./components/DataTable";
 import StockSelectorModal from "./components/StockSelectorModal";
 import Navbar from "./components/Navbar";
 import "./App.css";
+import Carousel from "./components/Carousel";
 
 const App = () => {
   const [symbol, setSymbol] = useState("bitcoin");
@@ -17,15 +18,15 @@ const App = () => {
     setModalOpen(false);
   };
 
-// modal symbol change
+  // modal symbol change
   const handleSymbolChange = (newSymbol) => {
     setSymbol(newSymbol);
   };
-  
+
   return (
     <div className="app">
       <Navbar openModal={openModal} />
-
+      <Carousel />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<DataTable symbol={symbol} />} />
